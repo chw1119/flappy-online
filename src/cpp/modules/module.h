@@ -50,6 +50,9 @@ namespace Flappy {
 			class Ground;
 
 			class Cloud;
+				
+			template<typename T>
+			class Vector2;
 		}
 
 		namespace ui {
