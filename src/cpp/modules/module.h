@@ -67,6 +67,11 @@ namespace Flappy {
 	}
 }
 
+#include "./../imports/glew-2.1.0/include/GL/glew.h
+
+#include "./../imports/SDL2-2.0.12/include/SDL.h"
+#include "./../imports/SDL2-2.0.12/include/SDL_opengl.h"
+
 #include "./Main.hpp";
 
 #endif

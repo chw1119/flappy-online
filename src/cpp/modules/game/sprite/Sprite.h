@@ -6,6 +6,8 @@
 class Flappy::game::sprite::Sprite {
 private:
 
+
+	GLuint vertexId;
 public:
 	API_ENTRY Sprite();
 	API_ENTRY Sprite(int xSize, int ySize);
