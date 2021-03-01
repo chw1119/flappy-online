@@ -23,6 +23,9 @@ namespace Flappy {
 
 	namespace io {
 
+		template <typename T>
+		class Buffer;
+
 		namespace packet {
 			
 			class Packet;
@@ -56,6 +59,8 @@ namespace Flappy {
 		}
 
 		namespace ui {
+			class MouseInteractive;
+
 			class Button;
 
 			class Images;

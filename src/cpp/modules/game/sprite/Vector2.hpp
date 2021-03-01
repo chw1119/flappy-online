@@ -41,22 +41,25 @@ Flappy::game::sprite::Vector2<T> Flappy::game::sprite::Vector2<T>::operator/(Vec
 
 template<typename T>
 Flappy::game::sprite::Vector2<T>& Flappy::game::sprite::Vector2<T>::operator+=(Vector2<T> vec2) {
-
+	this = this + vec2;
 }
 
 template<typename T>
 Flappy::game::sprite::Vector2<T>& Flappy::game::sprite::Vector2<T>::operator-=(Vector2<T> vec2) {
 
+	this = this - vec2;
 }
 
 template<typename T>
 Flappy::game::sprite::Vector2<T>& Flappy::game::sprite::Vector2<T>::operator*=(Vector2<T> vec2) {
 
+	this = this * vec2;
 }
 
 template<typename T>
 Flappy::game::sprite::Vector2<T>& Flappy::game::sprite::Vector2<T>::operator/=(Vector2<T> vec2) {
 
+	this = this / vec2;
 }
 
 template<typename T>
@@ -73,10 +76,10 @@ T Flappy::game::sprite::Vector2<T>::getY() const {
 
 template<typename T>
 void Flappy::game::sprite::Vector2<T>::setX(T x) {
-
+	this->x = x;
 }
 
 template<typename T>
 void Flappy::game::sprite::Vector2<T>::setY(T y) {
-
+	this->y = y;
 }
