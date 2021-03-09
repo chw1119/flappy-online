@@ -1,39 +1,76 @@
 #ifndef __Buffer
 #define __Buffer
+
 #include "./../module.h"
+#include "./Buffer.hpp" 
 
 template<typename T>
-class Flappy::io::Buffer {
-private:
-	const inline static int STANDARD_BUFFER_SIZE = 0x6;
+void Flappy::io::Buffer<T>::init (int __size,T* data) {
+	this->buffer = new T[__size];
+	
+	if (data != nullptr) memcpy(this->buffer, data, sizeof(T) * __size);
 
-	int size;
-	int position;
+	this->size = __size;
+	this->position = 0;
 
-	T* buffer;
-private:
-	void init(int size,T* data);
-public:
-	Buffer();
-	Buffer(int size);
-	Buffer(int size,T* data);
+}
 
-	~Buffer();
+template<typename T>
+Flappy::io::Buffer<T>::Buffer() {
+	init(Buffer::STANDARD_BUFFER_SIZE, nullptr);
+}
 
-	int getSize() const;
-	int getPosition() const;
+template<typename T>
+Flappy::io::Buffer<T>::Buffer(int size) {
+	init(size, nullptr);
+}
 
-	void setPosition(int position);
+template<typename T>
+Flappy::io::Buffer<T>::Buffer(int size, T* data) {
+	init(size, data);
+}
 
-	void put(T data);
-	void put(T data, int index);
 
-	T get();
-	T get(int index) const;
+template<typename T>
+Flappy::io::Buffer<T>::~Buffer() {
+	delete[] this->buffer;
+}
 
-	T* getPointer() const;
+template<typename T>
+int Flappy::io::Buffer<T>::getSize() const {
+	return this->size;
+}
+template<typename T>
+int Flappy::io::Buffer<T>::getPosition() const {
+	return this->position;
+}
 
-};
+template<typename T>
+void Flappy::io::Buffer<T>::setPosition(int position) {
+	this->position = position;
+}
 
-#include "./Buffer.hpp"
+template<typename T>
+void Flappy::io::Buffer<T>::put(T data) {
+	this->buffer[++this->position] = data;
+}
+template<typename T>
+void Flappy::io::Buffer<T>::put(T data, int index) {
+	this->buffer[index] = data;
+}
+
+template<typename T>
+T Flappy::io::Buffer<T>::get() {
+	return this->buffer[++this->position];
+}
+template<typename T>
+T Flappy::io::Buffer<T>::get(int index) const {
+	return this->buffer[index];
+}
+
+template<typename T>
+T* Flappy::io::Buffer<T>::getPointer() const {
+	return this->buffer;
+}
+
 #endif

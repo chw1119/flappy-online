@@ -3,7 +3,7 @@
 
 #include "./../../module.h"
 
-class MouseInteractive {
+class Flappy::game::ui::MouseInteractive {
 public:
 	virtual void onMouseUp()    = 0;
 	virtual void onMouseDown()  = 0;

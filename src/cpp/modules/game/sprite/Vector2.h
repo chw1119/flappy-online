@@ -1,10 +1,10 @@
 #ifndef __Vector2
-
+#define __Vector2
 #include "./../../module.h"
 
 
 template <typename T>
-class Flappy::game::sprite::Vector2 {
+class Flappy::game::sprite::Vector2	 {
 
 private:
 	T x;
